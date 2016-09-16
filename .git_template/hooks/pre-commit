@@ -1,0 +1,22 @@
+#!/bin/sh
+#
+if git rev-parse --verify HEAD >/dev/null 2>&1
+then
+  against=HEAD
+else
+  # Initial commit: diff against an empty tree object
+  against=4b825dc642cb6eb9a060e54bf8d69288fbee4904
+fi
+
+
+for FILE in `git diff-index --name-status $against -- | grep '\.\(rb\|haml\)$'| cut -c3-` ; do
+  # Check if the file contains 'debugger'
+  grep_result=`grep 'binding\.pry\|DONTCOMMIT' $FILE | grep -v -E '\s*\#+.*binding\.pry' | grep -v '^$'`
+  if [ -n "${grep_result}" ]
+  then
+    echo $FILE ' contains binding.pry!'
+    echo $grep_result
+    exit 1
+  fi
+done
+

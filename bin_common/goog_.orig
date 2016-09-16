@@ -1,0 +1,32 @@
+#!/usr/bin/env ruby
+
+cache_file = ENV['HOME'] + '/.googf_temp'
+dir_file = ENV['HOME'] + '/.googf_dir'
+target_dir = ARGV.shift
+pattern = ARGV.shift
+file_pattern = ARGV.shift || '*'
+
+def get_command(target_dir, pattern, file_pattern)
+  commands = [
+    "| find #{target_dir} -name \"*#{pattern}*\"  |  grep -v \"\\.svn\"",
+    "find #{target_dir} -d skip -name \"#{file_pattern}\" | ruby -e 'print STDIN.reject{|l|l=~/\.svn/}.map{|l| l.chomp.gsub(/ /, \"\\ \")}.join(\"\\0\")' | xargs -0 grep -H -n \"#{pattern}\" ",
+  ]
+  com = commands.join(';')
+
+  #puts com
+  com
+end
+
+open(get_command(target_dir, pattern, file_pattern)){|f|
+  open( cache_file, 'w'){|cache|
+    i = 0
+    f.each{|l|
+      puts "#{format('%4d', i)} #{l}"
+      cache.puts l
+      i += 1
+    }
+  }
+}
+
+open(dir_file, 'w'){|f| f.write Dir.pwd }
+

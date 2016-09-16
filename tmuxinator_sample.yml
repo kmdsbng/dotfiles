@@ -1,0 +1,32 @@
+# ~/.tmuxinator/<%= ENV['app_name'] %>.yml
+
+name: ENV['app_name']
+root: ~/work/<%= ENV['app_name'] %>
+
+# Optional tmux socket
+# socket_name: foo
+
+# Runs before everything. Use it to start daemons etc.
+# pre: sudo /etc/rc.d/mysqld start
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+# pre_window: rbenv shell 2.0.0-p247
+
+# Pass command line options to tmux. Useful for specifying a different tmux.conf.
+# tmux_options: -f ~/.tmux.mac.conf
+
+# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
+# tmux_command: byobu
+
+windows:
+  - console: ./bin/rails console
+  - editor:
+  - editor:
+  - editor:
+  - editor:
+  - editor:
+  - editor:
+  - editor:
+  - editor:
+  - server: ./bin/rails s -p 4567
+

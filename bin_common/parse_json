@@ -1,0 +1,11 @@
+#!/bin/env ruby
+
+require 'pp'
+require 'json'
+
+json = File.read(ARGV[0])
+params = JSON.parse(json)
+pp params
+
+
+

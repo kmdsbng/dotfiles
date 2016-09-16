@@ -1,0 +1,4 @@
+#!/bin/bash
+
+find -name `basename $1` | grep $1
+

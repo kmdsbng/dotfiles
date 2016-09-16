@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+curdir = ARGV.shift
+pattern = ARGV.pop
+result = %x(find #{curdir} -name \"*#{pattern}*\" | ruby -e 'print STDIN.reject{|l|l=~/\.svn/}') +
+         %x(find #{curdir} | ruby -e 'print STDIN.reject{|l|l=~/\.svn/}' | xargs grep -n \"#{pattern}\" )
+
+result.map{|l|l.split(":")[0]}.sort.uniq.join(" ").display
+

@@ -1,0 +1,6 @@
+#compdef bj
+
+names=$(\ls $HOME/.zsh/bookmark)
+_arguments "*:bookmarks:($names)"
+
+

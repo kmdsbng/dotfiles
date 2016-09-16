@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+require File.dirname(__FILE__) + '/googutil'
+
+files = read_files_with_lines(ARGV)
+Dir.chdir read_pwd
+exec('vim ' +  files.map{|f| %Q("#{File.expand_path(f[0])}")}.join(' '))
+

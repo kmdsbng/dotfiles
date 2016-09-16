@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby
+
+cache_file = ENV['HOME'] + '/.googf_temp'
+dir_file = ENV['HOME'] + '/.googf_dir'
+target_dir = ARGV.shift
+pattern = ARGV.pop
+
+def get_command(target_dir, pattern)
+  commands = [
+    "| find #{target_dir} -name \"*#{pattern}*\"",
+  ]
+  commands.join(';')
+end
+
+open(get_command(target_dir, pattern)){|f|
+  open( cache_file, 'w'){|cache|
+    i = 0
+    f.each{|l|
+      next if l =~ /\.svn/
+      puts "#{format('%4d', i)} #{l}"
+      cache.puts l
+      i += 1
+    }
+  }
+}
+
+open(dir_file, 'w'){|f| f.write Dir.pwd }
+

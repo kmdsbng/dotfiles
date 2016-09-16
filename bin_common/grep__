@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+curdir = ARGV.shift
+patterns = ARGV
+
+def quote_params( params )
+  '"' + params.join('" "') + '"' 
+end
+
+#puts( "find #{curdir} | ruby -e 'print STDIN.reject{|l|l=~/\.svn/}' | xargs grep -n #{quote_params(patterns)} " )
+system( "find #{curdir} | ruby -e 'print STDIN.reject{|l|l=~/\.svn/}' | xargs grep -n #{quote_params(patterns)} " )
+

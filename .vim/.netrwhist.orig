@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/home/kamogawa/work/tweet_crawler/lib/tweet_crawler.rb'
+let g:netrw_dirhist_2='/home/kamogawa/work/tweet_crawler/lib/tweet_crawler'
+let g:netrw_dirhist_3='/home/kamogawa/work/tweet_crawler/log'
+let g:netrw_dirhist_4='/home/kameda/work/man3skanri/rails/public/stylesheets/layout'
+let g:netrw_dirhist_5='/home/kameda/work/man3skanri/rails/app/models/campaign'
+let g:netrw_dirhist_6='/home/kameda/work/man3skanri/rails/app/models/key_infomation'
+let g:netrw_dirhist_7='/home/kameda/.rvm/gems/ruby-1.9.2-p136/gems/devise-1.1.5/lib/devise/hooks'

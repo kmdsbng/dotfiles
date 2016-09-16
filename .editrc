@@ -1,0 +1,6 @@
+
+
+mysql:bind '^U' vi-kill-line-prev
+mysql:bind '^W' ed-delete-prev-word
+
+

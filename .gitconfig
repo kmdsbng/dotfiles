@@ -1,0 +1,21 @@
+[user]
+  name = Yoshihiro Kameda
+  email = kameda.sbng@gmail.com
+
+[tig "bind"]
+  generic = g move-first-line
+  generic = G move-last-line
+
+[pager]
+#  log = diff-highlight | LESS=-R less
+#  show = diff-highlight | LESS=-R less
+#  diff = diff-highlight | LESS=-R less
+
+[init]
+	templatedir = ~/.git_template
+[github]
+	user = kmdsbng
+[merge]
+	conflictstyle = diff3
+[color]
+	ui = true

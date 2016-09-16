@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+cache_file = ENV['HOME'] + '/.googf_temp'
+File.readlines(cache_file).each_with_index{|l,i|
+  puts "#{format('%4d', i)} #{l}"
+}
+

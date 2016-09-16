@@ -1,0 +1,11 @@
+export SVN_EDITOR=/usr/bin/vim
+
+## for mac
+#alias ls='ls -FhG'
+#function chpwd() {
+#  ls
+#}
+
+## for node.js
+#export PATH=$PATH:$HOME/node_modules/.bin
+
