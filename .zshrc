@@ -97,7 +97,8 @@ out_screen () { echo -ne "\033k$*\033\\ \r" ; }
 DIRSTACKSIZE=16
 alias vimh='rm /tmp/vim_dirhist_file; vim "+MRU";dir=`ruby -e "src=%Q(/tmp/vim_dirhist_file); dir=File.read(src) if File.exist?(src); print( (dir && !dir.empty?) ? File.dirname(dir) : %Q(./))"`; echo \=\> $dir; cd $dir'
 
-alias ls='ls -F --color=auto'
+#alias ls='ls -F --color=auto'
+alias ls='ls -GF'
 alias find_='find_ ./ -name '
 alias grep_='grep__ ./'
 alias goog='goog_ ./ '
