@@ -377,9 +377,9 @@ lb () {
 }
 
 source $HOME/.zshrc_local
-source $HOME/bin_common/copipe.sh
-source $HOME/my_local/.zsh/functions/up
-source $HOME/my_local/.zsh/functions/u
+#source $HOME/bin_common/copipe.sh
+#source $HOME/my_local/.zsh/functions/up
+#source $HOME/my_local/.zsh/functions/u
 
 # 3秒以上処理にかかったら、timeを表示
 REPORTTIME=3
