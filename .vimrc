@@ -18,13 +18,13 @@ NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'basyura/unite-rails'
 NeoBundle 'tsukkee/unite-tag'
 NeoBundle 'Shougo/vimproc.git'
-NeoBundle 'rhysd/vim-textobj-ruby'
+"NeoBundle 'rhysd/vim-textobj-ruby'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'kana/vim-operator-user.git'
 NeoBundle 'osyo-manga/vim-operator-search' " depend on vim-operator-user
-NeoBundle 'kana/vim-textobj-function.git'
-NeoBundle 'thinca/vim-textobj-function-javascript.git'
-NeoBundle 't9md/vim-textobj-function-ruby.git'
+"NeoBundle 'kana/vim-textobj-function.git'
+"NeoBundle 'thinca/vim-textobj-function-javascript.git'
+"NeoBundle 't9md/vim-textobj-function-ruby.git'
 "NeoBundle 'yomi322/vim-operator-suddendeath.git'
 "NeoBundle 'git://git.wincent.com/command-t.git'
 NeoBundle 'git@github.com:slim-template/vim-slim.git'
@@ -154,7 +154,8 @@ set visualbell t_vg= " visualbell無効
 set scrolloff=5 " スクロール時、ウインドウの上下5行まで行くとスクロールするように
 set ambiwidth=double
 set report=1 " 1箇所以上変更されたら「n行変更しました」みたいになる
-set statusline=%{SyntasticStatuslineFlag()}[%n%{bufnr('$')>1?'/'.bufnr('$'):''}%{winnr('$')>1?':'.winnr().'/'.winnr('$'):''}]\ %<\ %f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l/%L,%c\ %=%{g:HahHah()}
+"set statusline=%{SyntasticStatuslineFlag()}[%n%{bufnr('$')>1?'/'.bufnr('$'):''}%{winnr('$')>1?':'.winnr().'/'.winnr('$'):''}]\ %<\ %f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l/%L,%c\ %=%{g:HahHah()}
+set statusline=%{SyntasticStatuslineFlag()}[%n%{bufnr('$')>1?'/'.bufnr('$'):''}%{winnr('$')>1?':'.winnr().'/'.winnr('$'):''}]\ %<\ %f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l/%L,%c\
 
 set grepprg=ack " change grep program to ack
 
