@@ -18,7 +18,7 @@ NeoBundle 'ujihisa/unite-colorscheme'
 "NeoBundle 'basyura/unite-rails'
 NeoBundle 'tsukkee/unite-tag'
 NeoBundle 'Shougo/vimproc.git'
-NeoBundle 'rhysd/vim-textobj-ruby'
+"NeoBundle 'rhysd/vim-textobj-ruby'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'kana/vim-operator-user.git'
 NeoBundle 'osyo-manga/vim-operator-search' " depend on vim-operator-user
@@ -167,6 +167,7 @@ set ambiwidth=double
 set report=1 " 1箇所以上変更されたら「n行変更しました」みたいになる
 "set statusline=%{SyntasticStatuslineFlag()}[%n%{bufnr('$')>1?'/'.bufnr('$'):''}%{winnr('$')>1?':'.winnr().'/'.winnr('$'):''}]\ %<\ %f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l/%L,%c\ %=%{g:HahHah()}
 set statusline=[%n%{bufnr('$')>1?'/'.bufnr('$'):''}%{winnr('$')>1?':'.winnr().'/'.winnr('$'):''}]\ %<\ %f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l/%L,%c\ %=%{g:HahHah()}
+" set statusline=%{SyntasticStatuslineFlag()}[%n%{bufnr('$')>1?'/'.bufnr('$'):''}%{winnr('$')>1?':'.winnr().'/'.winnr('$'):''}]\ %<\ %f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l/%L,%c\
 
 set grepprg=ack " change grep program to ack
 

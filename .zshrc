@@ -504,3 +504,13 @@ CRYSTAL_CACHE_DIR=$HOME/.crystal
 
 
 
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+# [[ -f /Users/kameda/.anyenv/envs/ndenv/versions/v8.9.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/kameda/.anyenv/envs/ndenv/versions/v8.9.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+# [[ -f /Users/kameda/.anyenv/envs/ndenv/versions/v8.9.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/kameda/.anyenv/envs/ndenv/versions/v8.9.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/kameda/.sdkman"
+[[ -s "/Users/kameda/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/kameda/.sdkman/bin/sdkman-init.sh"
