@@ -15,30 +15,29 @@ NeoBundle 'Shougo/neosnippet.git'
 NeoBundle 'Shougo/neosnippet-snippets.git'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'ujihisa/unite-colorscheme'
-NeoBundle 'basyura/unite-rails'
+"NeoBundle 'basyura/unite-rails'
 NeoBundle 'tsukkee/unite-tag'
 NeoBundle 'Shougo/vimproc.git'
 NeoBundle 'rhysd/vim-textobj-ruby'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'kana/vim-operator-user.git'
 NeoBundle 'osyo-manga/vim-operator-search' " depend on vim-operator-user
-NeoBundle 'kana/vim-textobj-function.git'
-NeoBundle 'thinca/vim-textobj-function-javascript.git'
-NeoBundle 't9md/vim-textobj-function-ruby.git'
+"NeoBundle 'kana/vim-textobj-function.git'
+"NeoBundle 'thinca/vim-textobj-function-javascript.git'
+"NeoBundle 't9md/vim-textobj-function-ruby.git'
 "NeoBundle 'yomi322/vim-operator-suddendeath.git'
 "NeoBundle 'git://git.wincent.com/command-t.git'
 NeoBundle 'git@github.com:slim-template/vim-slim.git'
 NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'jnwhiteh/vim-golang'
+"NeoBundle 'jnwhiteh/vim-golang'
 NeoBundle 'motemen/git-vim'
-NeoBundle 'mattn/gist-vim'
-NeoBundle 'mattn/webapi-vim'
+"NeoBundle 'mattn/webapi-vim'
 NeoBundle 'mattn/gist-vim'
 NeoBundle 'kmdsbng/vim-ruby-eval'
-NeoBundle 'scrooloose/syntastic'
+"NeoBundle 'scrooloose/syntastic'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'tpope/vim-endwise' " def hoge<CR>すると、endを保管してくれたりする。ifとかも対応。
-NeoBundle 'tpope/vim-rails'
+"NeoBundle 'tpope/vim-rails'
 NeoBundle 'thinca/vim-visualstar' " 選択範囲の文字列で検索する
 if version >= 730
   NeoBundle 'Lokaltog/vim-easymotion'
@@ -49,10 +48,10 @@ NeoBundle 'othree/html5.vim'
 " languages
 "------------------------------------
 NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle "elixir-lang/vim-elixir"
+"NeoBundle "elixir-lang/vim-elixir"
 
-NeoBundle 'tpope/vim-haml'
-NeoBundle 'vim-coffee-script'
+"NeoBundle 'tpope/vim-haml'
+"NeoBundle 'vim-coffee-script'
 "NeoBundle 'mattn/zencoding-vim' " move to emmet.vim
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'kana/vim-textobj-user'
@@ -70,13 +69,14 @@ NeoBundle 'kien/ctrlp.vim'
 " いつでもどこでも Vim から :help する http://mattn.kaoriya.net/software/vim/20140527210100.htm
 NeoBundle 'mattn/ctrlp-vimhelpjp'
 NeoBundle 'tyru/capture.vim'
-NeoBundle 'terryma/vim-multiple-cursors'
+"NeoBundle 'terryma/vim-multiple-cursors'
+NeoBundle 'vim-scripts/str2numchar.vim'
 
 "------------------------------------
 " colorschemes
 "------------------------------------
 NeoBundle 'sjl/badwolf'
-NeoBundle 'morhetz/gruvbox'
+"NeoBundle 'morhetz/gruvbox'
 "NeoBundle 'altercation/solarized'
 NeoBundle 'morhetz/gruvbox'
 NeoBundle 'jonathanfilip/vim-lucius'
@@ -96,6 +96,19 @@ NeoBundle 'ekalinin/Dockerfile.vim'
 NeoBundle 'https://github.com/leafgarland/typescript-vim.git'
 NeoBundle 'https://github.com/clausreinke/typescript-tools.vim'
 
+NeoBundle 'prabirshrestha/async.vim'
+NeoBundle 'prabirshrestha/vim-lsp'
+NeoBundle 'prabirshrestha/asyncomplete.vim'
+NeoBundle 'prabirshrestha/asyncomplete-lsp.vim'
+NeoBundle 'natebosch/vim-lsc'
+let g:lsp_async_completion = 1
+let g:lsp_diagnostics_enabled = 0
+"let g:lsp_log_verbose = 1
+"let g:lsp_log_file = expand('~/vim-lsp.log')
+"let g:asyncomplete_log_file = expand('~/asyncomplete.log')
+
+NeoBundle 'w0rp/ale'
+
 call neobundle#end()
 
 
@@ -103,15 +116,13 @@ filetype plugin indent on
 
 NeoBundleCheck
 
-" syntax options
-let html_no_rendering = 1 " disable html rendering on Vim
+" syntax optionslet html_no_rendering = 1 " disable html rendering on Vim
 
 let mapleader = ","
 
 
 " add plugin path
-set runtimepath+=$HOME/my_local/repos/str2numchar.vim
-set runtimepath+=$HOME/my_local/repos/ninsatu.vim
+set runtimepath+=$HOME/dotfiles/_vim/ninsatu.vim
 
 let g:EasyMotion_do_mapping = 0 "Disable default mappings
 nmap s <Plug>(easymotion-s2)
@@ -154,7 +165,8 @@ set visualbell t_vg= " visualbell無効
 set scrolloff=5 " スクロール時、ウインドウの上下5行まで行くとスクロールするように
 set ambiwidth=double
 set report=1 " 1箇所以上変更されたら「n行変更しました」みたいになる
-set statusline=%{SyntasticStatuslineFlag()}[%n%{bufnr('$')>1?'/'.bufnr('$'):''}%{winnr('$')>1?':'.winnr().'/'.winnr('$'):''}]\ %<\ %f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l/%L,%c\ %=%{g:HahHah()}
+"set statusline=%{SyntasticStatuslineFlag()}[%n%{bufnr('$')>1?'/'.bufnr('$'):''}%{winnr('$')>1?':'.winnr().'/'.winnr('$'):''}]\ %<\ %f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l/%L,%c\ %=%{g:HahHah()}
+set statusline=[%n%{bufnr('$')>1?'/'.bufnr('$'):''}%{winnr('$')>1?':'.winnr().'/'.winnr('$'):''}]\ %<\ %f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l/%L,%c\ %=%{g:HahHah()}
 
 set grepprg=ack " change grep program to ack
 
@@ -194,20 +206,20 @@ if has("autocmd")
   \ endif
 endif
 
-if has("cscope")
-   set csprg=/usr/bin/cscope
-   set csto=0
-   set cst
-   set nocsverb
-   " add any database in current directory
-   if filereadable("cscope.out")
-      cs add cscope.out
-   " else add database pointed to by environment
-   elseif $CSCOPE_DB != ""
-      cs add $CSCOPE_DB
-   endif
-   set csverb
-endif
+"if has("cscope")
+"   set csprg=/usr/bin/cscope
+"   set csto=0
+"   set cst
+"   set nocsverb
+"   " add any database in current directory
+"   if filereadable("cscope.out")
+"      cs add cscope.out
+"   " else add database pointed to by environment
+"   elseif $CSCOPE_DB != ""
+"      cs add $CSCOPE_DB
+"   endif
+"   set csverb
+"endif
 
 map <silent> sy :call YanktmpYank()<CR><ESC>
 map <silent> sp :call YanktmpPaste_p()<CR><ESC>
@@ -331,13 +343,18 @@ let g:user_zen_settings = {
       \  },
       \}
 
-" vim-rails custom command
-autocmd User Rails silent! Rnavcommand routes config -glob=*.*  -suffix= -default=routes.rb
-autocmd User Rails silent! Rnavcommand db config -glob=*.*  -suffix= -default=database.yml
+"" vim-rails custom command
+"autocmd User Rails silent! Rnavcommand routes config -glob=*.*  -suffix= -default=routes.rb
+"autocmd User Rails silent! Rnavcommand db config -glob=*.*  -suffix= -default=database.yml
 
 
 " quickfix設定
 nmap <F11> :make -c %<CR>
+
+" nnoremap <F2> :LspNextError<CR>
+nnoremap <F2> <Plug>(ale_next_wrap)
+nnoremap <C-B> :LspDefinition<CR>
+
 
 " コンプリーション設定
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -420,6 +437,24 @@ endif
 " mapを上書きしたが、同様のことが <C-W>] でできたので、コメントアウト
 "nnoremap <C-]> "nyiw:stj <C-R>n<CR>
 
+" Haskell用設定
+augroup MyLsp
+  autocmd FileType haskell setlocal omnifunc=lsp#complete
+
+  if executable('hie')
+      au User lsp_setup call lsp#register_server({
+        \ 'name': 'hie',
+        \ 'cmd': {server_info->['hie']},
+        \ 'whitelist': ['haskell'],
+        \ })
+  endif
+
+  au FileType haskell nmap <leader>R <plug>(lsp-rename)
+  au FileType haskell nmap <leader>D <plug>(lsp-definition)
+  au FileType haskell nmap <leader>r <plug>(lsp-references)
+  au FileType haskell nmap <leader>d <plug>(lsp-document-symbol)
+  au FileType haskell nmap <leader>w <plug>(lsp-workspace-symbol)
+augroup end
 
 "------------------------------------
 " 新規ファイルを開いたタイミングで、テンプレートを表示する
@@ -519,10 +554,10 @@ command! -nargs=0 -range URLEncode :<line1>,<line2>call <SID>URLEncode()
 command! -nargs=0 -range URLDecode :<line1>,<line2>call <SID>URLDecode()
 
 " errormarker.vim 設定 # syntastic使うようにしたので使ってない
-let g:errormarker_errortext = '!!'
-let g:errormarker_worningtext = '??'
-let g:errormarker_errorgroup = 'Error'
-let g:errormarker_worninggroup = 'Warning'
+"let g:errormarker_errortext = '!!'
+"let g:errormarker_worningtext = '??'
+"let g:errormarker_errorgroup = 'Error'
+"let g:errormarker_worninggroup = 'Warning'
 
 if !exists('g:flymake_enabled')
   let g:flymake_enabled = 1
@@ -631,24 +666,34 @@ let g:NERDTreeWinSize=60      " ウインドウ幅
 let g:NERDTreeDirArrows=1     " ディレクトリ表示にArrowを使う
 nnoremap <silent> <C-W><C-R> :NERDTreeToggle<CR>
 
-"------------------------------------
-" syntastic設定
-" https://github.com/scrooloose/syntastic/blob/master/doc/syntastic.txt
-"------------------------------------
-let g:syntastic_auto_loc_list = 2 " エラーウインドウ設定
-                                  " 0:自動で開かないし閉じない
-                                  " 1:エラーがあると自動で開く。ないと閉じる
-                                  " 2: エラーがないと閉じる。自動では開かない
-let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
-let g:syntastic_auto_jump = 1     " エラー発生時ジャンプ設定
-                                  " 0:自動でジャンプしない
-                                  " 1:最初のissue detectedにジャンプする
-                                  " 2:最初にissue detectedがエラーの時だけジャンプする
+" "------------------------------------
+" " syntastic設定
+" " https://github.com/scrooloose/syntastic/blob/master/doc/syntastic.txt
+" "------------------------------------
+" let g:syntastic_auto_loc_list = 2 " エラーウインドウ設定
+"                                   " 0:自動で開かないし閉じない
+"                                   " 1:エラーがあると自動で開く。ないと閉じる
+"                                   " 2: エラーがないと閉じる。自動では開かない
+" let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
+" let g:syntastic_auto_jump = 1     " エラー発生時ジャンプ設定
+"                                   " 0:自動でジャンプしない
+"                                   " 1:最初のissue detectedにジャンプする
+"                                   " 2:最初にissue detectedがエラーの時だけジャンプする
+" 
+" " let g:syntastic_ruby_checkers = ['mri', 'rubocop'] " ruby checkerにrubocopを使う
+" " let g:syntastic_ruby_checkers = ['rubocop'] " ruby checkerにrubocopを使う
+" let g:syntastic_ruby_checkers = ['mri', 'rubocop'] " ruby checkerにrubocopを使う
+" let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_haskell_checkers = ["hlint"]
+" 
+" 
+" let g:syntastic_always_populate_loc_list = 1
+" let g:elm_syntastic_show_warnings = 1
 
-"let g:syntastic_ruby_checkers = ['mri', 'rubocop'] " ruby checkerにrubocopを使う
-"let g:syntastic_ruby_checkers = ['rubocop'] " ruby checkerにrubocopを使う
-let g:syntastic_ruby_checkers = ['mri', 'rubocop'] " ruby checkerにrubocopを使う
-let g:syntastic_javascript_checkers = ['eslint']
+" ---------------------------------------
+"  ale設定
+" ---------------------------------------
+let g:ale_linters = { 'haskell': ['hie'], }
 
 
 "------------------------------------
@@ -658,29 +703,29 @@ if !exists('loaded_matchit')
   runtime macros/matchit.vim
 endif
 
-"------------------------------------
-" Unite-rails.vim
-"------------------------------------
-"{{{
-function! UniteRailsSetting()
-  nnoremap <buffer><C-H><C-H><C-H>  :<C-U>Unite rails/view<CR>
-  nnoremap <buffer><C-H><C-H>       :<C-U>Unite rails/model<CR>
-  nnoremap <buffer><C-H>            :<C-U>Unite rails/controller<CR>
-
-  nnoremap <buffer><C-H>c           :<C-U>Unite rails/config<CR>
-  nnoremap <buffer><C-H>s           :<C-U>Unite rails/spec<CR>
-  nnoremap <buffer><C-H>m           :<C-U>Unite rails/db -input=migrate<CR>
-  nnoremap <buffer><C-H>l           :<C-U>Unite rails/lib<CR>
-  nnoremap <buffer><expr><C-H>g     ':e '.b:rails_root.'/Gemfile<CR>'
-  nnoremap <buffer><expr><C-H>r     ':e '.b:rails_root.'/config/routes.rb<CR>'
-  nnoremap <buffer><expr><C-H>se    ':e '.b:rails_root.'/db/seeds.rb<CR>'
-  nnoremap <buffer><C-H>ra          :<C-U>Unite rails/rake<CR>
-  nnoremap <buffer><C-H>h           :<C-U>Unite rails/heroku<CR>
-endfunction
-aug MyAutoCmd
-  au User Rails call UniteRailsSetting()
-aug END
-"}}}
+" "------------------------------------
+" " Unite-rails.vim
+" "------------------------------------
+" "{{{
+" function! UniteRailsSetting()
+"   nnoremap <buffer><C-H><C-H><C-H>  :<C-U>Unite rails/view<CR>
+"   nnoremap <buffer><C-H><C-H>       :<C-U>Unite rails/model<CR>
+"   nnoremap <buffer><C-H>            :<C-U>Unite rails/controller<CR>
+" 
+"   nnoremap <buffer><C-H>c           :<C-U>Unite rails/config<CR>
+"   nnoremap <buffer><C-H>s           :<C-U>Unite rails/spec<CR>
+"   nnoremap <buffer><C-H>m           :<C-U>Unite rails/db -input=migrate<CR>
+"   nnoremap <buffer><C-H>l           :<C-U>Unite rails/lib<CR>
+"   nnoremap <buffer><expr><C-H>g     ':e '.b:rails_root.'/Gemfile<CR>'
+"   nnoremap <buffer><expr><C-H>r     ':e '.b:rails_root.'/config/routes.rb<CR>'
+"   nnoremap <buffer><expr><C-H>se    ':e '.b:rails_root.'/db/seeds.rb<CR>'
+"   nnoremap <buffer><C-H>ra          :<C-U>Unite rails/rake<CR>
+"   nnoremap <buffer><C-H>h           :<C-U>Unite rails/heroku<CR>
+" endfunction
+" aug MyAutoCmd
+"   au User Rails call UniteRailsSetting()
+" aug END
+" "}}}
 
 
 " 最後に変更したテキストの選択
@@ -710,6 +755,7 @@ augroup TastetheRainbow
     autocmd Syntax * call Config_Rainbow()
     autocmd VimEnter,BufRead,BufWinEnter,BufNewFile * call Load_Rainbow()
 augroup END
+
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
     \ ['Darkblue',    'SeaGreen3'],
@@ -728,6 +774,7 @@ let g:rbpt_colorpairs = [
     \ ['darkred',     'DarkOrchid3'],
     \ ['red',         'firebrick3'],
     \ ]
+
 "let g:rbpt_colorpairs = [
 "    \ ['240',  'LightGray'],
 "    \ ['247',  'gray'],
@@ -751,29 +798,29 @@ let g:rbpt_colorpairs = [
 
 
 
-" http://deris.hatenablog.jp/entry/2013/07/05/023835
-" gz で、NeoBundleで管理してるプラグインのURLをブラウザで開く。
-nnoremap gz vi':<C-u>call ExecuteWithSelectedText('OpenBrowser https://github.com/%s')<CR>
-vnoremap gz :<C-u>call ExecuteWithSelectedText('OpenBrowser https://github.com/%s')<CR>
+"" http://deris.hatenablog.jp/entry/2013/07/05/023835
+"" gz で、NeoBundleで管理してるプラグインのURLをブラウザで開く。
+"nnoremap gz vi':<C-u>call ExecuteWithSelectedText('OpenBrowser https://github.com/%s')<CR>
+"vnoremap gz :<C-u>call ExecuteWithSelectedText('OpenBrowser https://github.com/%s')<CR>
 
-" visualモードで最後に選択したテキストを%sで指定してコマンドを実行する {{{
-function! ExecuteWithSelectedText(command)
-  if a:command !~? '%s'
-    return
-  endif
-
-  let reg = '"'
-  let [save_reg, save_type] = [getreg(reg), getregtype(reg)]
-  normal! gvy
-  let selectedText = @"
-  call setreg(reg, save_reg, save_type)
-  if selectedText == ''
-    return
-  endif
-
-  execute printf(a:command, selectedText)
-endfunction
-" }}}
+"" visualモードで最後に選択したテキストを%sで指定してコマンドを実行する {{{
+"function! ExecuteWithSelectedText(command)
+"  if a:command !~? '%s'
+"    return
+"  endif
+"
+"  let reg = '"'
+"  let [save_reg, save_type] = [getreg(reg), getregtype(reg)]
+"  normal! gvy
+"  let selectedText = @"
+"  call setreg(reg, save_reg, save_type)
+"  if selectedText == ''
+"    return
+"  endif
+"
+"  execute printf(a:command, selectedText)
+"endfunction
+"" }}}
 
 
 "function! SetJiraTitleInner(
@@ -789,7 +836,7 @@ endfunction
 "command! -range SetJiraTitle call SetJiraTitle()
 
 
-command! -range SetJiraTitle rubydo $_ = $_.gsub(/(\w+-\d+)(\s*)$/) {|id| `jira_title_md #{id}`.chomp}
+"command! -range SetJiraTitle rubydo $_ = $_.gsub(/(\w+-\d+)(\s*)$/) {|id| `jira_title_md #{id}`.chomp}
 
 
 
